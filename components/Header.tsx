@@ -37,13 +37,13 @@ const Header = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full overflow-visible">
-        <div className="flex items-center h-16 lg:h-20 justify-between">
+        <div className="flex items-center h-16 lg:h-20 justify-between gap-2">
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="flex items-center flex-shrink-0"
+            className="flex items-center flex-shrink-0 min-w-0"
           >
-            <span className="text-2xl lg:text-3xl font-bold text-black">
+            <span className="text-2xl lg:text-3xl font-bold text-black truncate">
               ABC
             </span>
           </motion.div>
@@ -79,8 +79,9 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 rounded-md text-black hover:text-gray-700 hover:bg-gray-100 transition-colors border border-gray-200 flex-shrink-0"
+            className="lg:hidden p-2 rounded-md text-black hover:text-gray-700 hover:bg-gray-100 transition-colors border border-gray-200 flex-shrink-0 min-w-[44px] min-h-[44px]"
             style={{ zIndex: 60 }}
+            aria-label="Open mobile menu"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
