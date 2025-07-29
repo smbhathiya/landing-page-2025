@@ -36,12 +36,12 @@ const Header = () => {
           : 'lg:bg-transparent bg-white shadow-sm'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full overflow-hidden">
-        <div className="flex justify-between items-center h-16 lg:h-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full overflow-visible">
+        <div className="flex items-center h-16 lg:h-20 justify-between">
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="flex items-center"
+            className="flex items-center flex-shrink-0"
           >
             <span className="text-2xl lg:text-3xl font-bold text-black">
               ABC
@@ -79,62 +79,61 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 rounded-md text-black hover:text-gray-700 hover:bg-gray-100 transition-colors border border-gray-200"
+            className="lg:hidden p-2 rounded-md text-black hover:text-gray-700 hover:bg-gray-100 transition-colors border border-gray-200 flex-shrink-0"
+            style={{ zIndex: 60 }}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
-
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {isMobileMenuOpen && (
-            <motion.div
-              initial={{ x: '-100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '-100%' }}
-              transition={{ type: 'tween', duration: 0.3 }}
-              className="lg:hidden fixed top-0 left-0 w-full h-full bg-white z-50"
-            >
-              <div className="flex flex-col h-full">
-                {/* Header */}
-                <div className="flex justify-between items-center p-6 border-b border-gray-200">
-                  <span className="text-2xl font-bold text-black">ABC</span>
-                  <button
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="p-2 rounded-md text-gray-700 hover:text-black hover:bg-gray-100 transition-colors"
-                  >
-                    <X size={24} />
-                  </button>
-                </div>
-                
-                {/* Navigation Items */}
-                <div className="flex-1 flex flex-col justify-center px-6 space-y-6">
-                  {navItems.map((item, index) => (
-                    <motion.a
-                      key={item.name}
-                      href={item.href}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.1 }}
-                      className="text-3xl font-bold text-gray-900 hover:text-black transition-colors"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      {item.name}
-                    </motion.a>
-                  ))}
-                </div>
-                
-                {/* Footer */}
-                <div className="p-6 border-t border-gray-200">
-                  <button className="w-full bg-black text-white px-6 py-4 rounded-full font-semibold text-lg hover:bg-gray-800 transition-all duration-200">
-                    Get Started
-                  </button>
-                </div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </div>
+      {/* Mobile Menu - moved outside container for full width */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ x: '-100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '-100%' }}
+            transition={{ type: 'tween', duration: 0.3 }}
+            className="lg:hidden fixed top-0 left-0 w-full h-full bg-white z-[70]"
+            style={{ overflowY: 'auto' }}
+          >
+            <div className="flex flex-col h-full">
+              {/* Header */}
+              <div className="flex justify-between items-center p-6 border-b border-gray-200">
+                <span className="text-2xl font-bold text-black">ABC</span>
+                <button
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="p-2 rounded-md text-gray-700 hover:text-black hover:bg-gray-100 transition-colors"
+                >
+                  <X size={24} />
+                </button>
+              </div>
+              {/* Navigation Items */}
+              <div className="flex-1 flex flex-col justify-center px-6 space-y-6">
+                {navItems.map((item, index) => (
+                  <motion.a
+                    key={item.name}
+                    href={item.href}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    className="text-3xl font-bold text-gray-900 hover:text-black transition-colors"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </motion.a>
+                ))}
+              </div>
+              {/* Footer */}
+              <div className="p-6 border-t border-gray-200">
+                <button className="w-full bg-black text-white px-6 py-4 rounded-full font-semibold text-lg hover:bg-gray-800 transition-all duration-200">
+                  Get Started
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.header>
   );
 };
