@@ -36,7 +36,7 @@ const Header = () => {
           : 'lg:bg-transparent bg-white shadow-sm'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full overflow-hidden">
         <div className="flex justify-between items-center h-16 lg:h-20">
           {/* Logo */}
           <motion.div
@@ -79,7 +79,7 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 rounded-md text-black hover:text-gray-700 hover:bg-gray-100 transition-colors"
+            className="lg:hidden p-2 rounded-md text-black hover:text-gray-700 hover:bg-gray-100 transition-colors border border-gray-200"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
