@@ -6,6 +6,7 @@ import Portfolio from '../components/Portfolio';
 import Team from '../components/Team';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
+import BackToTop from '../components/BackToTop';
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <Team />
       <Contact />
       <Footer />
+      <BackToTop />
     </main>
   );
 }
