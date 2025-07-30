@@ -116,7 +116,7 @@ const About = () => {
                   </div>
                 </div>
                 <p className="text-lg opacity-90">
-                  "We've helped businesses achieve remarkable growth through innovative digital strategies and unwavering commitment to results."
+                  &ldquo;We&rsquo;ve helped businesses achieve remarkable growth through innovative digital strategies and unwavering commitment to results.&rdquo;
                 </p>
               </div>
             </div>

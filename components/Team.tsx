@@ -175,7 +175,7 @@ const Team = () => {
               Ready to Work with Our Team?
             </h3>
             <p className="text-xl mb-8 text-gray-200">
-              Let's discuss your project and see how our expert team can help you achieve your goals.
+              Let&rsquo;s discuss your project and see how our expert team can help you achieve your goals.
             </p>
             <motion.button
               whileHover={{ scale: 1.05 }}

@@ -81,10 +81,10 @@ const Services = () => {
               Services
             </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We offer comprehensive digital marketing solutions designed to grow your business 
-            and achieve measurable results in today's competitive landscape.
-          </p>
+                      <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              We offer comprehensive digital marketing solutions designed to grow your business 
+              and achieve measurable results in today&rsquo;s competitive landscape.
+            </p>
         </motion.div>
 
         {/* Services Grid */}
@@ -95,7 +95,7 @@ const Services = () => {
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {services.map((service, index) => (
+          {services.map((service) => (
             <motion.div
               key={service.title}
               variants={itemVariants}
@@ -139,7 +139,7 @@ const Services = () => {
               Ready to Transform Your Business?
             </h3>
             <p className="text-xl mb-8 text-gray-200">
-              Let's discuss how our digital marketing services can help you achieve your goals.
+              Let&rsquo;s discuss how our digital marketing services can help you achieve your goals.
             </p>
             <motion.button
               whileHover={{ scale: 1.05 }}

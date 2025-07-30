@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Star, Quote, ArrowRight } from 'lucide-react';
+import { Star, Quote } from 'lucide-react';
 
 const Portfolio = () => {
   const testimonials = [
@@ -48,7 +48,7 @@ const Portfolio = () => {
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            See how we've helped businesses achieve remarkable growth and success through our digital marketing expertise.
+            See how we&apos;ve helped businesses achieve remarkable growth and success through our digital marketing expertise.
           </p>
         </motion.div>
 
@@ -84,7 +84,7 @@ const Portfolio = () => {
                 </div>
                 
                 <p className="text-gray-700 mb-6 leading-relaxed">
-                  "{testimonial.content}"
+                  &ldquo;{testimonial.content}&rdquo;
                 </p>
                 
                 <div className="flex items-center">

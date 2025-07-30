@@ -70,10 +70,10 @@ const Contact = () => {
               Contact Us Today
             </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Let's discuss how we can help transform your business with our digital marketing expertise. 
-            Get your free consultation today.
-          </p>
+                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Let&rsquo;s discuss how we can help transform your business with our digital marketing expertise. 
+                Get your free consultation today.
+              </p>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
@@ -204,8 +204,8 @@ const Contact = () => {
                 Get in Touch
               </h3>
               <p className="text-gray-600 mb-8 leading-relaxed">
-                We're here to help you succeed. Reach out to us through any of the channels below, 
-                and we'll get back to you within 24 hours.
+                We&rsquo;re here to help you succeed. Reach out to us through any of the channels below, 
+                and we&rsquo;ll get back to you within 24 hours.
               </p>
             </div>
 
