@@ -8,21 +8,21 @@ const Portfolio = () => {
     {
       name: 'Sarah Johnson',
       role: 'CEO, TechStart Inc.',
-      content: 'DigitalFlow transformed our online presence completely. Our organic traffic increased by 400% in just 6 months, and our conversion rates improved dramatically.',
+      content: 'abc transformed our online presence completely. Our organic traffic increased by 400% in just 6 months, and our conversion rates improved dramatically.',
       rating: 5,
       image: '/api/placeholder/60/60'
     },
     {
       name: 'Michael Chen',
       role: 'Marketing Director, GrowthCo',
-      content: 'The team at DigitalFlow is exceptional. They not only delivered on their promises but exceeded our expectations. Our ROI has been incredible.',
+      content: 'The team at abc is exceptional. They not only delivered on their promises but exceeded our expectations. Our ROI has been incredible.',
       rating: 5,
       image: '/api/placeholder/60/60'
     },
     {
       name: 'Emily Rodriguez',
       role: 'Founder, EcoStyle',
-      content: 'Working with DigitalFlow has been a game-changer for our business. Their strategic approach and attention to detail have helped us scale rapidly.',
+      content: 'Working with abc has been a game-changer for our business. Their strategic approach and attention to detail have helped us scale rapidly.',
       rating: 5,
       image: '/api/placeholder/60/60'
     }

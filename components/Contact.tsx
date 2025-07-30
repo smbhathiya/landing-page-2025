@@ -30,7 +30,7 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email Us',
-      details: ['hello@digitalflow.com', 'support@digitalflow.com'],
+      details: ['hello@abc.com', 'support@abc.com'],
       description: 'Get in touch with our team'
     },
     {

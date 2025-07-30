@@ -46,7 +46,7 @@ const About = () => {
             </h2>
             
             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              Founded in 2018, DigitalFlow has been at the forefront of digital marketing innovation, 
+              Founded in 2018, abc has been at the forefront of digital marketing innovation, 
               helping businesses of all sizes achieve remarkable growth through strategic digital solutions.
             </p>
             

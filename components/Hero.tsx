@@ -83,7 +83,7 @@ const Hero = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-lg border-2 border-gray-300 hover:border-black hover:text-black transition-all duration-200"
+              className="flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-lg border-2 border-black text-black transition-all duration-200"
             >
               <Play size={20} />
               Watch Demo

@@ -67,7 +67,7 @@ const Footer = () => {
               <div className="space-y-3">
                 <div className="flex items-center text-gray-300">
                   <Mail className="w-5 h-5 mr-3 text-white" />
-                  <span>hello@digitalflow.com</span>
+                  <span>hello@abc.com</span>
                 </div>
                 <div className="flex items-center text-gray-300">
                   <Phone className="w-5 h-5 mr-3 text-white" />
@@ -162,7 +162,7 @@ const Footer = () => {
               viewport={{ once: true }}
               className="text-gray-400 text-sm mb-4 md:mb-0"
             >
-              © {currentYear} DigitalFlow. All rights reserved.
+              © {currentYear} abc. All rights reserved.
             </motion.div>
             
             <motion.div
