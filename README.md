@@ -192,24 +192,10 @@ Modify animation parameters in the Framer Motion components to adjust timing and
 
 ## 📄 License
 
-This project is **completely open source** and available for anyone to use, modify, and distribute freely. The code is provided as-is without any restrictions.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-### Usage Rights:
-- ✅ **Free to use** for any purpose (personal, commercial, educational)
-- ✅ **Free to modify** and customize for your own projects
-- ✅ **Free to distribute** and share with others
-- ✅ **Free to sell** or use in commercial applications
-- ✅ **No attribution required** (though appreciated)
+The project is completely open source and available for anyone to use, modify, and distribute freely. See the LICENSE file for full usage rights and permissions.
 
-### What You Can Do:
-- Use this landing page template for your own business
-- Modify the design, colors, and content
-- Add new features and components
-- Use it as a learning resource
-- Share it with others
-- Sell it as part of your services
-
-**No license file needed - this code is completely open and free for everyone!**
-
+---
 
 Built with ❤️ using Next.js, TypeScript, and Tailwind CSS
