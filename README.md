@@ -181,7 +181,6 @@ Modify animation parameters in the Framer Motion components to adjust timing and
 ## 🌟 Recent Updates
 
 ### Version 2.0 Changes
-- **Company rebrand**: Changed from "DigitalFlow" to "ABC"
 - **Color theme**: Switched to black and white design
 - **Team section**: Added comprehensive team showcase
 - **Mobile navigation**: Full-screen overlay from left
