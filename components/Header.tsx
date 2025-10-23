@@ -81,7 +81,9 @@ const Header = () => {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="lg:hidden p-2 rounded-md text-black hover:text-gray-700 hover:bg-gray-100 transition-colors border border-gray-200 flex-shrink-0 min-w-[44px] min-h-[44px]"
             style={{ zIndex: 60 }}
-            aria-label="Open mobile menu"
+            aria-label={isMobileMenuOpen ? 'Close mobile menu' : 'Open mobile menu'}
+            aria-controls="mobile-menu"
+            aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -97,6 +99,9 @@ const Header = () => {
             transition={{ type: 'tween', duration: 0.3 }}
             className="lg:hidden fixed top-0 left-0 w-full h-full bg-white z-[70]"
             style={{ overflowY: 'auto' }}
+            id="mobile-menu"
+            role="dialog"
+            aria-modal="true"
           >
             <div className="flex flex-col h-full">
               {/* Header */}
