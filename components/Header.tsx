@@ -95,21 +95,27 @@ const Header = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-40 lg:hidden"
+            className="fixed inset-0 z-80 lg:hidden"
           >
-            <motion.button
-              type="button"
+            <div
               aria-label="Close mobile menu"
+              className="absolute inset-0 bg-black/35"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="absolute inset-0 bg-black/20"
+              role="button"
+              tabIndex={0}
+              onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                  setIsMobileMenuOpen(false);
+                }
+              }}
             />
 
             <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "tween", duration: 0.3 }}
-              className="absolute right-0 top-0 h-full w-full max-w-sm overflow-y-auto border-l border-gray-200 bg-white shadow-xl"
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "100%" }}
+              transition={{ type: "tween", duration: 0.28, ease: "easeOut" }}
+              className="absolute inset-0 flex h-full min-h-screen w-full flex-col bg-white"
               id="mobile-menu"
               role="dialog"
               aria-modal="true"
@@ -125,13 +131,13 @@ const Header = () => {
                 </button>
               </div>
 
-              <div className="space-y-6 px-6 py-8">
+              <div className="flex-1 space-y-6 overflow-y-auto px-6 py-8">
                 {navItems.map((item, index) => (
                   <motion.a
                     key={item.name}
                     href={item.href}
-                    initial={{ opacity: 0, x: 40 }}
-                    animate={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: 22 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.05 }}
                     className="block text-2xl font-semibold text-gray-900"
                     onClick={() => setIsMobileMenuOpen(false)}
@@ -141,7 +147,7 @@ const Header = () => {
                 ))}
               </div>
 
-              <div className="mt-auto border-t border-gray-200 px-6 py-8">
+              <div className="border-t border-gray-200 px-6 py-8">
                 <button className="flex w-full items-center justify-center gap-2 rounded-full bg-gray-900 px-6 py-3 text-base font-semibold text-white">
                   Request proposal
                   <ArrowRight className="h-4 w-4" />
