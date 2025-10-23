@@ -59,15 +59,7 @@ const Hero = () => {
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-16 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)]">
           <div className="space-y-10">
-            <motion.span
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white/80 px-4 py-1.5 text-sm font-medium text-gray-600 shadow-sm backdrop-blur"
-            >
-              <Sparkles className="h-4 w-4" />
-              <span>Performance marketing, re-architected</span>
-            </motion.span>
+
 
             <motion.h1
               initial={{ opacity: 0, y: 30 }}

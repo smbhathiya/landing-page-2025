@@ -37,27 +37,16 @@ const Header = () => {
       }`}
     >
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between gap-4 py-4">
-          <div className="flex items-center gap-6">
-            <motion.a
-              href="#home"
-              whileHover={{ scale: 1.04 }}
-              className="flex items-center gap-3 rounded-full border border-gray-200 bg-white/80 px-4 py-2 text-sm font-semibold text-gray-900 shadow-sm"
-            >
-              <span className="text-xl font-semibold tracking-tight">ABC</span>
-              <span className="hidden text-xs font-medium text-gray-500 sm:inline">
-                Growth partners
-              </span>
-            </motion.a>
+        <div className="flex items-center justify-between py-4">
+          <motion.a
+            href="#home"
+            whileHover={{ scale: 1.04 }}
+            className="text-xl font-semibold tracking-tight text-gray-900"
+          >
+            ABC
+          </motion.a>
 
-            <div className="hidden items-center gap-3 text-xs font-medium uppercase tracking-[0.3em] text-gray-500 lg:flex">
-              <span>New York</span>
-              <span className="h-1 w-1 rounded-full bg-gray-400" />
-              <span>Remote first</span>
-            </div>
-          </div>
-
-          <nav className="hidden items-center gap-2 rounded-full border border-gray-200 bg-white/80 p-1 shadow-sm lg:flex">
+          <nav className="hidden items-center gap-6 lg:flex">
             {navItems.map((item, index) => (
               <motion.a
                 key={item.name}
@@ -66,10 +55,9 @@ const Header = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.05 }}
                 whileHover={{ y: -2 }}
-                className="group relative rounded-full px-4 py-2 text-sm font-medium text-gray-600 transition-colors duration-200 hover:text-gray-900"
+                className="text-sm font-medium text-gray-600 transition-colors duration-200 hover:text-gray-900"
               >
                 {item.name}
-                <span className="absolute inset-x-3 bottom-1 h-0.5 origin-center scale-x-0 rounded-full bg-gray-900/30 transition-transform duration-200 group-hover:scale-x-100" />
               </motion.a>
             ))}
           </nav>
@@ -80,7 +68,7 @@ const Header = () => {
               animate={{ opacity: 1, scale: 1 }}
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.97 }}
-              className="hidden items-center gap-2 rounded-full border border-gray-900 bg-gray-900 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-transform duration-200 lg:flex"
+              className="hidden items-center gap-2 rounded-full bg-gray-900 px-5 py-2.5 text-sm font-semibold text-white transition-transform duration-200 lg:flex"
             >
               Request proposal
               <ArrowRight className="h-4 w-4" />
@@ -153,12 +141,8 @@ const Header = () => {
                 ))}
               </div>
 
-              <div className="mt-auto space-y-6 border-t border-gray-200 px-6 py-8">
-                <p className="text-sm text-gray-500">
-                  Book a working session with our strategy leads to map the
-                  first 90 days of traction.
-                </p>
-                <button className="flex w-full items-center justify-center gap-2 rounded-full border border-gray-900 bg-gray-900 px-6 py-3 text-base font-semibold text-white">
+              <div className="mt-auto border-t border-gray-200 px-6 py-8">
+                <button className="flex w-full items-center justify-center gap-2 rounded-full bg-gray-900 px-6 py-3 text-base font-semibold text-white">
                   Request proposal
                   <ArrowRight className="h-4 w-4" />
                 </button>
