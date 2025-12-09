@@ -1,261 +1,266 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
-import { Clock, MapPin, Mail, Phone, Send } from "lucide-react";
-import { useState } from "react";
-
-const contactChannels = [
-  {
-    title: "Email",
-    description:
-      "Drop a note and our partnerships team will reply within one business day.",
-    details: ["hello@abc.com", "partnerships@abc.com"],
-    icon: Mail,
-  },
-  {
-    title: "Call",
-    description:
-      "Speak with a strategist to unpack goals, budgets, and timelines.",
-    details: ["+1 (555) 123-4567", "+1 (555) 765-4321"],
-    icon: Phone,
-  },
-  {
-    title: "Office hours",
-    description:
-      "Schedule a working session with our leadership in person or virtually.",
-    details: ["123 Digital Street, Tech City", "Mon–Fri · 9:00–18:00"],
-    icon: MapPin,
-  },
-  {
-    title: "Support window",
-    description:
-      "Active partners receive same-day responses via Slack or email.",
-    details: ["Dedicated Slack channel", "Response SLA · 4 business hours"],
-    icon: Clock,
-  },
-];
+import { motion } from 'framer-motion';
+import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react';
+import { useState } from 'react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    service: "",
-    message: "",
+    name: '',
+    email: '',
+    company: '',
+    service: '',
+    message: ''
   });
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    console.log("Form submitted:", formData);
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle form submission here
+    console.log('Form submitted:', formData);
   };
 
-  const handleChange = (
-    event: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
-  ) => {
-    setFormData({ ...formData, [event.target.name]: event.target.value });
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
   };
+
+  const contactInfo = [
+    {
+      icon: Mail,
+      title: 'Email Us',
+      details: ['hello@abc.com', 'support@abc.com'],
+      description: 'Get in touch with our team'
+    },
+    {
+      icon: Phone,
+      title: 'Call Us',
+      details: ['+1 (555) 123-4567', '+1 (555) 987-6543'],
+      description: 'Speak with our experts'
+    },
+    {
+      icon: MapPin,
+      title: 'Visit Us',
+      details: ['123 Digital Street', 'Tech City, TC 12345'],
+      description: 'Our office location'
+    },
+    {
+      icon: Clock,
+      title: 'Business Hours',
+      details: ['Mon - Fri: 9AM - 6PM', 'Sat: 10AM - 4PM'],
+      description: 'When we are available'
+    }
+  ];
 
   return (
-    <section
-      id="contact"
-      className="relative overflow-hidden bg-gray-100 py-24"
-    >
-      <div
-        className="absolute inset-x-0 top-0 h-64 bg-linear-to-b from-white/30 via-white/70 to-white"
-        aria-hidden
-      />
-      <div
-        className="absolute left-1/2 top-24 h-80 w-80 -translate-x-1/2 rounded-full border border-dashed border-gray-200"
-        aria-hidden
-      />
-
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-20 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center"
+          className="text-center mb-16"
         >
-          <span className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white/80 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.3em] text-gray-500">
-            Let’s collaborate
-          </span>
-          <h2 className="mt-6 text-4xl font-semibold leading-tight text-gray-900 sm:text-5xl">
-            Share the challenge—we’ll map the first 90 days of traction.
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+            Ready to Get Started?
+            <span className="block text-black">
+              Contact Us Today
+            </span>
           </h2>
-          <p className="mt-4 text-lg leading-8 text-gray-600">
-            Tell us about your product, revenue goals, and timelines. Our
-            partnership leads will curate the right pod, craft a roadmap, and
-            jump into execution.
-          </p>
+                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Let&rsquo;s discuss how we can help transform your business with our digital marketing expertise. 
+                Get your free consultation today.
+              </p>
         </motion.div>
 
-        <div className="mt-16 grid gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          {/* Contact Form */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
+            initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true, margin: "-80px" }}
-            className="rounded-3xl border border-gray-200 bg-white p-10 shadow-sm"
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="bg-white rounded-2xl p-8 shadow-lg"
           >
-            <form className="space-y-6" onSubmit={handleSubmit}>
-              <div className="grid gap-6 sm:grid-cols-2">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">
+              Send us a Message
+            </h3>
+            
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label
-                    className="text-sm font-medium text-gray-600"
-                    htmlFor="name"
-                  >
-                    Full name *
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                    Full Name *
                   </label>
                   <input
+                    type="text"
                     id="name"
                     name="name"
-                    required
                     value={formData.name}
                     onChange={handleChange}
-                    className="mt-2 w-full rounded-xl border border-gray-300 bg-gray-50 px-4 py-3 text-sm text-gray-900 shadow-inner focus:border-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-900/10"
-                    placeholder="Jamie Rivera"
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                    placeholder="Your full name"
                   />
                 </div>
+                
                 <div>
-                  <label
-                    className="text-sm font-medium text-gray-600"
-                    htmlFor="email"
-                  >
-                    Work email *
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                    Email Address *
                   </label>
                   <input
+                    type="email"
                     id="email"
                     name="email"
-                    type="email"
-                    required
                     value={formData.email}
                     onChange={handleChange}
-                    className="mt-2 w-full rounded-xl border border-gray-300 bg-gray-50 px-4 py-3 text-sm text-gray-900 shadow-inner focus:border-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-900/10"
-                    placeholder="jamie@company.com"
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                    placeholder="your@email.com"
                   />
                 </div>
               </div>
-
-              <div className="grid gap-6 sm:grid-cols-2">
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label
-                    className="text-sm font-medium text-gray-600"
-                    htmlFor="company"
-                  >
-                    Company
+                  <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
+                    Company Name
                   </label>
                   <input
+                    type="text"
                     id="company"
                     name="company"
                     value={formData.company}
                     onChange={handleChange}
-                    className="mt-2 w-full rounded-xl border border-gray-300 bg-gray-50 px-4 py-3 text-sm text-gray-900 shadow-inner focus:border-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-900/10"
-                    placeholder="Company name"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                    placeholder="Your company"
                   />
                 </div>
+                
                 <div>
-                  <label
-                    className="text-sm font-medium text-gray-600"
-                    htmlFor="service"
-                  >
-                    Priority focus
+                  <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">
+                    Service Interest
                   </label>
                   <select
                     id="service"
                     name="service"
                     value={formData.service}
                     onChange={handleChange}
-                    className="mt-2 w-full rounded-xl border border-gray-300 bg-gray-50 px-4 py-3 text-sm text-gray-900 shadow-inner focus:border-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-900/10"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
                   >
-                    <option value="">Select</option>
-                    <option value="acquisition">Customer acquisition</option>
-                    <option value="lifecycle">Lifecycle & retention</option>
-                    <option value="creative">Creative & brand systems</option>
-                    <option value="analytics">Attribution & analytics</option>
-                    <option value="product-launch">Product launch</option>
+                    <option value="">Select a service</option>
+                    <option value="seo">SEO Optimization</option>
+                    <option value="ppc">PPC Advertising</option>
+                    <option value="social">Social Media Marketing</option>
+                    <option value="content">Content Marketing</option>
+                    <option value="web-design">Web Design & Development</option>
+                    <option value="automation">Marketing Automation</option>
+                    <option value="consultation">General Consultation</option>
                   </select>
                 </div>
               </div>
-
+              
               <div>
-                <label
-                  className="text-sm font-medium text-gray-600"
-                  htmlFor="message"
-                >
-                  What should we know? *
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                  Message *
                 </label>
                 <textarea
                   id="message"
                   name="message"
-                  required
-                  rows={5}
                   value={formData.message}
                   onChange={handleChange}
-                  className="mt-2 w-full resize-none rounded-xl border border-gray-300 bg-gray-50 px-4 py-3 text-sm text-gray-900 shadow-inner focus:border-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-900/10"
-                  placeholder="Share your goals, budgets, timelines, and challenges."
+                  required
+                  rows={5}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-none"
+                  placeholder="Tell us about your project and goals..."
                 />
               </div>
-
+              
               <motion.button
                 type="submit"
-                whileHover={{ y: -2 }}
-                whileTap={{ scale: 0.97 }}
-                className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gray-900 px-6 py-3 text-sm font-semibold text-white shadow-lg transition-transform duration-200"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full bg-black text-white py-4 rounded-lg font-semibold text-lg hover:bg-gray-800 transition-all duration-200 flex items-center justify-center gap-2"
               >
-                <Send className="h-4 w-4" />
-                Book strategy call
+                <Send size={20} />
+                Send Message
               </motion.button>
-
-              <p className="text-xs text-gray-500">
-                We respect your inbox. Expect one confirmation email and a
-                scheduling link—no drip sequences.
-              </p>
             </form>
           </motion.div>
 
+          {/* Contact Information */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
+            initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            viewport={{ once: true, margin: "-80px" }}
-            className="flex flex-col justify-between gap-10 rounded-3xl border border-gray-200 bg-white/80 p-10"
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="space-y-8"
           >
+            <div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Get in Touch
+              </h3>
+              <p className="text-gray-600 mb-8 leading-relaxed">
+                We&rsquo;re here to help you succeed. Reach out to us through any of the channels below, 
+                and we&rsquo;ll get back to you within 24 hours.
+              </p>
+            </div>
+
             <div className="space-y-6">
-              {contactChannels.map((channel, index) => (
+              {contactInfo.map((info, index) => (
                 <motion.div
-                  key={channel.title}
-                  initial={{ opacity: 0, y: 24 }}
+                  key={info.title}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.05 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="rounded-2xl border border-gray-200 bg-gray-50/80 p-5"
+                  className="flex items-start space-x-4"
                 >
-                  <channel.icon className="h-5 w-5 text-gray-900" />
-                  <p className="mt-3 text-sm font-semibold text-gray-900">
-                    {channel.title}
-                  </p>
-                  <p className="mt-2 text-sm text-gray-600">
-                    {channel.description}
-                  </p>
-                  <ul className="mt-3 space-y-1 text-sm text-gray-500">
-                    {channel.details.map((detail) => (
-                      <li key={detail}>{detail}</li>
+                  <div className="flex-shrink-0 w-12 h-12 bg-black rounded-xl flex items-center justify-center">
+                    <info.icon className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-gray-900 mb-2">
+                      {info.title}
+                    </h4>
+                    <p className="text-gray-600 mb-2">
+                      {info.description}
+                    </p>
+                    {info.details.map((detail, i) => (
+                      <p key={i} className="text-gray-700 font-medium">
+                        {detail}
+                      </p>
                     ))}
-                  </ul>
+                  </div>
                 </motion.div>
               ))}
             </div>
 
-            <div className="rounded-2xl border border-gray-200 bg-white p-6 text-sm text-gray-600 shadow-sm">
-              <p className="font-semibold text-gray-900">Partner onboarding</p>
-              <p className="mt-2">
-                Kickoff in under two weeks: roadmap workshop, pod assignment,
-                and live campaign planning.
+            {/* CTA Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="bg-black rounded-2xl p-8 text-white"
+            >
+              <h4 className="text-2xl font-bold mb-4">
+                Free Consultation
+              </h4>
+              <p className="text-gray-200 mb-6">
+                Book a free 30-minute consultation to discuss your digital marketing needs and get personalized recommendations.
               </p>
-            </div>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-200"
+              >
+                Schedule Consultation
+              </motion.button>
+            </motion.div>
           </motion.div>
         </div>
       </div>
@@ -263,4 +268,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default Contact; 

@@ -107,14 +107,6 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${poppins.variable} antialiased bg-white text-gray-900`}
       >
-        {/* Skip link for keyboard users */}
-        <a
-          href="#main-content"
-          className="skip-link sr-only focus:not-sr-only absolute top-4 left-4 z-50 bg-black text-white px-3 py-2 rounded"
-        >
-          Skip to content
-        </a>
-
         {children}
       </body>
     </html>

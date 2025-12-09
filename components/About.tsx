@@ -1,240 +1,194 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
-import {
-  Award,
-  Brain,
-  Compass,
-  Layers,
-  Target,
-  TrendingUp,
-  Users,
-} from "lucide-react";
-
-const proofPoints = [
-  {
-    icon: TrendingUp,
-    metric: "310%+",
-    label: "Average lift in qualified pipeline within 12 months",
-  },
-  {
-    icon: Users,
-    metric: "38",
-    label: "Specialists across paid, lifecycle, data, and creative pods",
-  },
-  {
-    icon: Award,
-    metric: "8",
-    label: "Industry awards for performance marketing and experimentation",
-  },
-];
-
-const timeline = [
-  {
-    year: "2018",
-    title: "Launch",
-    detail:
-      "ABC founded to embed growth operators directly inside scale-up teams.",
-  },
-  {
-    year: "2020",
-    title: "Expansion",
-    detail:
-      "Introduced creative studio and experimentation lab to support lifecycle programs.",
-  },
-  {
-    year: "2023",
-    title: "Global partners",
-    detail:
-      "Grew to five global hubs supporting brands across SaaS, commerce, and marketplaces.",
-  },
-];
-
-const pillars = [
-  {
-    icon: Brain,
-    title: "Strategy that ships",
-    copy: "Operators join your weekly cadence so decisions translate into experiments and launches fast.",
-  },
-  {
-    icon: Layers,
-    title: "Creative intelligence",
-    copy: "Creative, audience insights, and analytics live together to keep stories consistent across every touchpoint.",
-  },
-  {
-    icon: Compass,
-    title: "Outcome obsessed",
-    copy: "Every sprint is framed around revenue, retention, and LTV impact—not vanity metrics.",
-  },
-];
+import { motion } from 'framer-motion';
+import { Award, Users, Target, TrendingUp } from 'lucide-react';
 
 const About = () => {
+  const highlights = [
+    {
+      icon: Award,
+      title: 'Industry Awards',
+      description: 'Recognized as a top digital marketing agency for 3 consecutive years'
+    },
+    {
+      icon: Users,
+      title: 'Expert Team',
+      description: 'Certified professionals with 10+ years of combined experience'
+    },
+    {
+      icon: Target,
+      title: 'Data-Driven',
+      description: 'Results-focused approach with measurable ROI for every campaign'
+    },
+    {
+      icon: TrendingUp,
+      title: 'Proven Results',
+      description: 'Average 300% increase in organic traffic for our clients'
+    }
+  ];
+
   return (
-    <section id="about" className="relative overflow-hidden bg-gray-50 py-24">
-      <div
-        className="absolute inset-x-0 top-0 h-64 bg-linear-to-b from-white/40 via-white/80 to-white"
-        aria-hidden
-      />
-      <div
-        className="absolute -left-24 top-32 h-72 w-72 rounded-full border border-dashed border-gray-200"
-        aria-hidden
-      />
+    <section id="about" className="py-20 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* Left Column - Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+              About
+                          <span className="block text-black">
+              ABC
+            </span>
+            </h2>
+            
+            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+              Founded in 2018, abc has been at the forefront of digital marketing innovation, 
+              helping businesses of all sizes achieve remarkable growth through strategic digital solutions.
+            </p>
+            
+            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+              Our mission is to empower businesses with cutting-edge digital marketing strategies that 
+              not only drive traffic and conversions but also build lasting relationships with their audiences. 
+              We believe in the power of data-driven decisions and creative storytelling.
+            </p>
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-16 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
-          <div className="space-y-10">
-            <motion.span
-              initial={{ opacity: 0, y: -12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white/80 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.3em] text-gray-500"
-            >
-              Our story
-            </motion.span>
-
-            <motion.h2
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="text-4xl font-semibold leading-tight text-gray-900 sm:text-5xl"
-            >
-              Designing growth systems that help modern brands compound.
-            </motion.h2>
-
-            <motion.p
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.05 }}
-              viewport={{ once: true }}
-              className="text-lg leading-8 text-gray-600"
-            >
-              We launched ABC to rethink how performance marketing teams partner
-              with founders and marketing leaders. Instead of handing over
-              decks, we stay embedded—aligning positioning, creative, channel
-              mix, and experimentation inside your operating rhythm.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
-              className="grid gap-4 sm:grid-cols-3"
-            >
-              {proofPoints.map((point) => (
-                <div
-                  key={point.label}
-                  className="rounded-2xl border border-gray-200 bg-white/85 p-5 shadow-sm"
+            {/* Highlights Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {highlights.map((highlight, index) => (
+                <motion.div
+                  key={highlight.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="flex items-start space-x-4"
                 >
-                  <point.icon className="h-5 w-5 text-gray-900" />
-                  <p className="mt-4 text-2xl font-semibold text-gray-900">
-                    {point.metric}
-                  </p>
-                  <p className="text-sm text-gray-600">{point.label}</p>
-                </div>
+                  <div className="flex-shrink-0 w-12 h-12 bg-black rounded-xl flex items-center justify-center">
+                    <highlight.icon className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                      {highlight.title}
+                    </h3>
+                    <p className="text-gray-600">
+                      {highlight.description}
+                    </p>
+                  </div>
+                </motion.div>
               ))}
-            </motion.div>
+            </div>
+          </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.15 }}
-              viewport={{ once: true }}
-              className="rounded-3xl border border-dashed border-gray-200 bg-white/70 p-6 shadow-sm"
-            >
-              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-gray-500">
-                How we operate
-              </p>
-              <p className="mt-3 text-base text-gray-600">
-                Every engagement comes with a dedicated pod of strategists,
-                channel owners, creatives, and analysts working in weekly
-                cadences. That structure means what we design on Monday is live
-                by Thursday—and measured by the following standup.
-              </p>
-            </motion.div>
-          </div>
-
-          <div className="relative">
-            <motion.div
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
-              className="overflow-hidden rounded-3xl border border-gray-200 bg-white/90 p-8 shadow-xl"
-            >
-              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-gray-500">
-                Milestones
-              </p>
-              <div className="mt-6 space-y-6">
-                {timeline.map((item, index) => (
-                  <div key={item.year} className="relative pl-8">
-                    <span className="absolute left-0 top-1 flex h-6 w-6 items-center justify-center rounded-full border border-gray-200 bg-white text-xs font-semibold text-gray-700">
-                      {index + 1}
-                    </span>
-                    <p className="text-sm font-semibold text-gray-900">
-                      {item.year}
-                    </p>
-                    <p className="text-base font-medium text-gray-800">
-                      {item.title}
-                    </p>
-                    <p className="text-sm text-gray-600">{item.detail}</p>
+          {/* Right Column - Visual Content */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="relative"
+          >
+            {/* Main Image Container */}
+            <div className="relative bg-black rounded-3xl p-8 text-white">
+              <div className="text-center">
+                <h3 className="text-3xl font-bold mb-4">
+                  Our Success Story
+                </h3>
+                <div className="grid grid-cols-2 gap-8 mb-8">
+                  <div className="text-center">
+                    <div className="text-4xl font-bold mb-2">500+</div>
+                    <div className="text-blue-100">Campaigns</div>
                   </div>
-                ))}
-              </div>
-
-              <div className="mt-8 rounded-2xl border border-gray-200 bg-gray-50/80 p-5">
-                <p className="text-sm font-semibold text-gray-900">
-                  Embedded growth guild
-                </p>
-                <p className="text-sm text-gray-600">
-                  Our teams sit across revenue operations, product marketing,
-                  and creative—so every launch stays cohesive.
-                </p>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 80 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="absolute -bottom-14 left-1/2 w-full max-w-lg -translate-x-1/2 rounded-3xl border border-gray-200 bg-white p-6 shadow-lg"
-            >
-              <div className="flex items-start gap-3">
-                <Target className="h-6 w-6 flex-none text-gray-800" />
-                <div>
-                  <p className="text-sm font-semibold text-gray-900">
-                    Operating principles
-                  </p>
-                  <p className="text-sm text-gray-600">
-                    We anchor every playbook to four pillars that keep teams
-                    aligned.
-                  </p>
+                  <div className="text-center">
+                    <div className="text-4xl font-bold mb-2">200+</div>
+                    <div className="text-blue-100">Clients</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-4xl font-bold mb-2">95%</div>
+                    <div className="text-blue-100">Success Rate</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-4xl font-bold mb-2">5+</div>
+                    <div className="text-blue-100">Years</div>
+                  </div>
                 </div>
+                <p className="text-lg opacity-90">
+                  &ldquo;We&rsquo;ve helped businesses achieve remarkable growth through innovative digital strategies and unwavering commitment to results.&rdquo;
+                </p>
               </div>
+            </div>
 
-              <div className="mt-5 grid gap-4 sm:grid-cols-2">
-                {pillars.map((pillar) => (
-                  <div
-                    key={pillar.title}
-                    className="rounded-2xl border border-gray-200 bg-gray-50/80 p-4"
-                  >
-                    <pillar.icon className="h-5 w-5 text-gray-800" />
-                    <p className="mt-3 text-sm font-semibold text-gray-900">
-                      {pillar.title}
-                    </p>
-                    <p className="mt-2 text-sm text-gray-600">{pillar.copy}</p>
-                  </div>
-                ))}
-              </div>
+            {/* Floating Elements */}
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 3, repeat: Infinity }}
+              className="absolute -top-6 -left-6 bg-white rounded-2xl p-6 shadow-xl"
+            >
+                              <div className="text-3xl font-bold text-black">300%</div>
+              <div className="text-sm text-gray-600">Avg. Traffic Increase</div>
             </motion.div>
-          </div>
+
+            <motion.div
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 3, repeat: Infinity, delay: 1 }}
+              className="absolute -bottom-6 -right-6 bg-white rounded-2xl p-6 shadow-xl"
+            >
+                              <div className="text-3xl font-bold text-black">24/7</div>
+              <div className="text-sm text-gray-600">Support Available</div>
+            </motion.div>
+          </motion.div>
         </div>
+
+        {/* Values Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="mt-20 text-center"
+        >
+          <h3 className="text-3xl font-bold text-gray-900 mb-12">
+            Our Core Values
+          </h3>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
+                             <div className="w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                 <Target className="w-8 h-8 text-black" />
+               </div>
+              <h4 className="text-xl font-semibold text-gray-900 mb-4">Results-Driven</h4>
+              <p className="text-gray-600">
+                We focus on delivering measurable results that directly impact your business growth and success.
+              </p>
+            </div>
+            
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
+                             <div className="w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                 <Users className="w-8 h-8 text-black" />
+               </div>
+              <h4 className="text-xl font-semibold text-gray-900 mb-4">Client-First</h4>
+              <p className="text-gray-600">
+                Your success is our priority. We build lasting partnerships based on trust, transparency, and mutual growth.
+              </p>
+            </div>
+            
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
+                             <div className="w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                 <TrendingUp className="w-8 h-8 text-black" />
+               </div>
+              <h4 className="text-xl font-semibold text-gray-900 mb-4">Innovation</h4>
+              <p className="text-gray-600">
+                We stay ahead of industry trends and leverage cutting-edge technologies to give you a competitive edge.
+              </p>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
 };
 
-export default About;
+export default About; 

@@ -48,31 +48,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Screen reader only helper */
-.sr-only {
-  position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
-  padding: 0 !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  clip: rect(0, 0, 0, 0) !important;
-  white-space: nowrap !important;
-  border: 0 !important;
-}
-
-/* Make skip link visible when focused */
-.skip-link:focus,
-.skip-link:active,
-.skip-link:not(.sr-only) {
-  position: fixed;
-  left: 1rem;
-  top: 1rem;
-  width: auto;
-  height: auto;
-  z-index: 9999;
-}
-
 /* Custom animations */
 @keyframes float {
   0%, 100% {
