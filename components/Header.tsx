@@ -1,18 +1,28 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
 const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      const currentScrollY = window.scrollY;
+      // Hide when scrolling down past 80px, show when scrolling up
+      if (currentScrollY > lastScrollY.current && currentScrollY > 80) {
+        setHidden(true);
+        setIsMobileMenuOpen(false);
+      } else {
+        setHidden(false);
+      }
+      lastScrollY.current = currentScrollY;
     };
-    window.addEventListener('scroll', handleScroll);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -27,12 +37,10 @@ const Header = () => {
 
   return (
     <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'glass-nav' : 'bg-transparent'
-      }`}
+      initial={{ y: '-100%' }}
+      animate={{ y: hidden ? '-100%' : '0%' }}
+      transition={{ duration: 0.35, ease: 'easeInOut' }}
+      className="fixed top-0 left-0 right-0 z-50 glass-nav"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="flex items-center h-16 lg:h-20 justify-between gap-2">
@@ -92,11 +100,7 @@ const Header = () => {
             exit={{ x: '-100%' }}
             transition={{ type: 'tween', duration: 0.3 }}
             className="lg:hidden fixed top-0 left-0 w-full h-full z-[70]"
-            style={{
-              background: 'rgba(247, 245, 255, 0.97)',
-              backdropFilter: 'blur(24px)',
-              WebkitBackdropFilter: 'blur(24px)',
-            }}
+            style={{ background: '#f7f5ff' }}
           >
             <div className="flex flex-col h-full">
               <div className="flex justify-between items-center p-6 border-b border-violet-100">

@@ -18,28 +18,22 @@ body {
   font-family: var(--font-inter), Arial, Helvetica, sans-serif;
 }
 
-/* ── Glass utilities (light theme) ── */
+/* ── Card utilities ── */
 .glass-card {
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.85);
+  background: #ffffff;
+  border: 1px solid rgba(124, 58, 237, 0.08);
   box-shadow: 0 4px 24px rgba(109, 40, 217, 0.06), 0 1px 4px rgba(0, 0, 0, 0.04);
 }
 
 .glass-strong {
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.9);
+  background: #ffffff;
+  border: 1px solid rgba(124, 58, 237, 0.1);
   box-shadow: 0 8px 32px rgba(109, 40, 217, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .glass-nav {
-  background: rgba(255, 255, 255, 0.82);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+  background: #ffffff;
+  border-bottom: 1px solid rgba(124, 58, 237, 0.08);
   box-shadow: 0 1px 20px rgba(0, 0, 0, 0.05);
 }
 
