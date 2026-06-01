@@ -3,54 +3,64 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Play, TrendingUp, Users, Target } from 'lucide-react';
 
-const Hero = () => {
-  const stats = [
-    { icon: TrendingUp, value: '500+', label: 'Campaigns Launched' },
-    { icon: Users, value: '200+', label: 'Happy Clients' },
-    { icon: Target, value: '95%', label: 'Success Rate' },
-  ];
+const stats = [
+  { icon: TrendingUp, value: '500+', label: 'Campaigns Launched' },
+  { icon: Users, value: '200+', label: 'Happy Clients' },
+  { icon: Target, value: '95%', label: 'Success Rate' },
+];
 
+const Hero = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
-      {/* Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-                  <motion.div
-            animate={{
-              rotate: 360,
-            }}
-            transition={{
-              duration: 20,
-              repeat: Infinity,
-              ease: "linear"
-            }}
-            className="absolute -top-40 -right-40 w-80 h-80 bg-gray-200/20 rounded-full blur-3xl"
-          />
-          <motion.div
-            animate={{
-              rotate: -360,
-            }}
-            transition={{
-              duration: 25,
-              repeat: Infinity,
-              ease: "linear"
-            }}
-            className="absolute -bottom-40 -left-40 w-80 h-80 bg-gray-300/20 rounded-full blur-3xl"
-          />
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#f7f5ff]">
+      {/* Pastel gradient orbs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          animate={{ scale: [1, 1.12, 1], opacity: [0.28, 0.42, 0.28] }}
+          transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
+          className="absolute -top-48 -right-48 w-[600px] h-[600px] bg-violet-300 rounded-full blur-[140px]"
+        />
+        <motion.div
+          animate={{ scale: [1, 1.15, 1], opacity: [0.22, 0.35, 0.22] }}
+          transition={{ duration: 11, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+          className="absolute -bottom-48 -left-48 w-[550px] h-[550px] bg-blue-300 rounded-full blur-[140px]"
+        />
+        <motion.div
+          animate={{ scale: [1, 1.08, 1], opacity: [0.18, 0.28, 0.18] }}
+          transition={{ duration: 13, repeat: Infinity, ease: 'easeInOut', delay: 4 }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-pink-200 rounded-full blur-[120px]"
+        />
+        {/* Subtle dot grid */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(124,58,237,0.07) 1px, transparent 0)',
+            backgroundSize: '44px 44px',
+          }}
+        />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
         <div className="text-center">
-          {/* Main Heading */}
+          {/* Eyebrow badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center gap-2.5 glass-card px-5 py-2.5 rounded-full mb-10"
+          >
+            <span className="w-2 h-2 bg-violet-500 rounded-full animate-pulse" />
+            <span className="text-gray-600 text-sm font-medium">Trusted by 200+ Businesses Worldwide</span>
+          </motion.div>
+
+          {/* Heading */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-4xl sm:text-5xl lg:text-7xl font-bold text-gray-900 mb-6"
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="text-4xl sm:text-5xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight"
           >
             Transform Your Business with
-            <span className="block text-black">
-              Digital Excellence
-            </span>
+            <span className="block gradient-text mt-2">Digital Excellence</span>
           </motion.h1>
 
           {/* Subtitle */}
@@ -58,9 +68,9 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl sm:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed"
+            className="text-lg sm:text-xl text-gray-500 mb-12 max-w-2xl mx-auto leading-relaxed"
           >
-            We help businesses grow their digital presence with cutting-edge marketing strategies, 
+            We help businesses grow their digital presence with cutting-edge marketing strategies,
             data-driven insights, and innovative solutions that deliver real results.
           </motion.p>
 
@@ -68,71 +78,73 @@ const Hero = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-20"
           >
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-black text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-800 transition-all duration-200 flex items-center gap-2"
+              className="bg-gradient-to-r from-violet-600 to-blue-600 text-white px-8 py-4 rounded-full font-semibold text-base glow-btn transition-all duration-300 flex items-center gap-2"
             >
               Start Your Journey
-              <ArrowRight size={20} />
+              <ArrowRight size={18} />
             </motion.button>
-            
+
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-lg border-2 border-black text-black transition-all duration-200"
+              className="glass-card text-gray-700 hover:text-gray-900 px-8 py-4 rounded-full font-semibold text-base flex items-center gap-2 transition-all duration-300"
             >
-              <Play size={20} />
+              <Play size={18} className="text-violet-600" />
               Watch Demo
             </motion.button>
           </motion.div>
 
-          {/* Stats */}
+          {/* Stat Cards */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-2xl mx-auto"
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-xl mx-auto"
           >
             {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
-                initial={{ opacity: 0, scale: 0.8 }}
+                initial={{ opacity: 0, scale: 0.85 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
-                whileHover={{ scale: 1.05 }}
-                className="text-center"
+                transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
+                whileHover={{ scale: 1.06, y: -4 }}
+                className="glass-card rounded-2xl p-5 text-center"
               >
-                <div className="flex justify-center mb-2">
-                  <stat.icon className="w-8 h-8 text-black" />
+                <div className="flex justify-center mb-3">
+                  <div className="w-9 h-9 bg-gradient-to-br from-violet-600 to-blue-600 rounded-xl flex items-center justify-center">
+                    <stat.icon className="w-4 h-4 text-white" />
+                  </div>
                 </div>
-                <div className="text-3xl font-bold text-gray-900 mb-1">{stat.value}</div>
-                <div className="text-gray-600">{stat.label}</div>
+                <div className="text-2xl font-bold text-gray-900 mb-0.5">{stat.value}</div>
+                <div className="text-gray-500 text-xs">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.2 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        transition={{ duration: 1, delay: 1.3 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center"
+          className="w-6 h-10 border-2 border-gray-300 rounded-full flex justify-center"
         >
           <motion.div
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="w-1 h-3 bg-gray-400 rounded-full mt-2"
+            className="w-1 h-3 bg-gradient-to-b from-violet-500 to-blue-500 rounded-full mt-2"
           />
         </motion.div>
       </motion.div>
@@ -140,4 +152,4 @@ const Hero = () => {
   );
 };
 
-export default Hero; 
+export default Hero;

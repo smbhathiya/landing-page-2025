@@ -12,7 +12,6 @@ const Header = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -30,22 +29,16 @@ const Header = () => {
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-white shadow-lg' 
-          : 'lg:bg-transparent bg-white shadow-sm'
+        isScrolled ? 'glass-nav' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full overflow-visible">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="flex items-center h-16 lg:h-20 justify-between gap-2">
           {/* Logo */}
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="flex items-center flex-shrink-0 min-w-0"
-          >
-            <span className="text-2xl lg:text-3xl font-bold text-black truncate">
-              ABC
-            </span>
+          <motion.div whileHover={{ scale: 1.05 }} className="flex items-center flex-shrink-0">
+            <span className="text-2xl lg:text-3xl font-bold gradient-text">ABC</span>
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -56,11 +49,12 @@ const Header = () => {
                 href={item.href}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: index * 0.08 }}
                 whileHover={{ y: -2 }}
-                className="text-gray-700 hover:text-black font-medium transition-colors duration-200"
+                className="relative text-gray-600 hover:text-gray-900 font-medium transition-colors duration-200 group"
               >
                 {item.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-violet-600 to-blue-500 group-hover:w-full transition-all duration-300 rounded-full" />
               </motion.a>
             ))}
           </nav>
@@ -69,9 +63,10 @@ const Header = () => {
           <motion.button
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.5 }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="hidden lg:block bg-black text-white px-6 py-3 rounded-full font-semibold hover:bg-gray-800 transition-all duration-200"
+            className="hidden lg:block bg-gradient-to-r from-violet-600 to-blue-600 text-white px-6 py-2.5 rounded-full font-semibold text-sm glow-btn transition-all duration-300"
           >
             Get Started
           </motion.button>
@@ -79,15 +74,16 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 rounded-md text-black hover:text-gray-700 hover:bg-gray-100 transition-colors border border-gray-200 flex-shrink-0 min-w-[44px] min-h-[44px]"
+            className="lg:hidden p-2 rounded-lg text-gray-600 hover:text-gray-900 glass-card flex-shrink-0 min-w-[44px] min-h-[44px] flex items-center justify-center transition-colors"
             style={{ zIndex: 60 }}
             aria-label="Open mobile menu"
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
-      {/* Mobile Menu - moved outside container for full width */}
+
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -95,39 +91,42 @@ const Header = () => {
             animate={{ x: 0 }}
             exit={{ x: '-100%' }}
             transition={{ type: 'tween', duration: 0.3 }}
-            className="lg:hidden fixed top-0 left-0 w-full h-full bg-white z-[70]"
-            style={{ overflowY: 'auto' }}
+            className="lg:hidden fixed top-0 left-0 w-full h-full z-[70]"
+            style={{
+              background: 'rgba(247, 245, 255, 0.97)',
+              backdropFilter: 'blur(24px)',
+              WebkitBackdropFilter: 'blur(24px)',
+            }}
           >
             <div className="flex flex-col h-full">
-              {/* Header */}
-              <div className="flex justify-between items-center p-6 border-b border-gray-200">
-                <span className="text-2xl font-bold text-black">ABC</span>
+              <div className="flex justify-between items-center p-6 border-b border-violet-100">
+                <span className="text-2xl font-bold gradient-text">ABC</span>
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="p-2 rounded-md text-gray-700 hover:text-black hover:bg-gray-100 transition-colors"
+                  className="p-2 rounded-lg text-gray-500 hover:text-gray-900 glass-card transition-colors"
                 >
-                  <X size={24} />
+                  <X size={22} />
                 </button>
               </div>
-              {/* Navigation Items */}
-              <div className="flex-1 flex flex-col justify-center px-6 space-y-6">
+
+              <div className="flex-1 flex flex-col justify-center px-6 space-y-5">
                 {navItems.map((item, index) => (
                   <motion.a
                     key={item.name}
                     href={item.href}
-                    initial={{ opacity: 0, x: -20 }}
+                    initial={{ opacity: 0, x: -24 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    className="text-3xl font-bold text-gray-900 hover:text-black transition-colors"
+                    transition={{ delay: index * 0.07 }}
+                    className="text-3xl font-bold text-gray-700 hover:text-gray-900 transition-colors"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {item.name}
                   </motion.a>
                 ))}
               </div>
-              {/* Footer */}
-              <div className="p-6 border-t border-gray-200">
-                <button className="w-full bg-black text-white px-6 py-4 rounded-full font-semibold text-lg hover:bg-gray-800 transition-all duration-200">
+
+              <div className="p-6 border-t border-violet-100">
+                <button className="w-full bg-gradient-to-r from-violet-600 to-blue-600 text-white px-6 py-4 rounded-full font-semibold text-lg glow-btn transition-all duration-300">
                   Get Started
                 </button>
               </div>
@@ -139,4 +138,4 @@ const Header = () => {
   );
 };
 
-export default Header; 
+export default Header;

@@ -3,151 +3,148 @@
 import { motion } from 'framer-motion';
 import { Search, BarChart3, Share2, PenTool, Smartphone, Zap } from 'lucide-react';
 
+const services = [
+  {
+    icon: Search,
+    title: 'SEO Optimization',
+    description: 'Improve your search engine rankings and drive organic traffic with comprehensive SEO strategies.',
+    features: ['Keyword Research', 'On-Page SEO', 'Technical SEO', 'Link Building'],
+    gradient: 'from-violet-600 to-purple-600',
+  },
+  {
+    icon: BarChart3,
+    title: 'PPC Advertising',
+    description: 'Maximize your ROI with targeted pay-per-click campaigns across Google Ads, Facebook, and more.',
+    features: ['Google Ads', 'Facebook Ads', 'Remarketing', 'Conversion Tracking'],
+    gradient: 'from-blue-600 to-cyan-600',
+  },
+  {
+    icon: Share2,
+    title: 'Social Media Marketing',
+    description: 'Build meaningful connections with your audience through strategic social media campaigns.',
+    features: ['Content Strategy', 'Community Management', 'Paid Social', 'Analytics'],
+    gradient: 'from-purple-600 to-pink-600',
+  },
+  {
+    icon: PenTool,
+    title: 'Content Marketing',
+    description: 'Create compelling content that resonates with your audience and drives engagement.',
+    features: ['Blog Writing', 'Video Content', 'Infographics', 'Email Marketing'],
+    gradient: 'from-cyan-600 to-blue-600',
+  },
+  {
+    icon: Smartphone,
+    title: 'Web Design & Development',
+    description: 'Build stunning, high-converting websites that provide exceptional user experiences.',
+    features: ['Responsive Design', 'UX/UI Design', 'E-commerce', 'Performance Optimization'],
+    gradient: 'from-violet-600 to-blue-600',
+  },
+  {
+    icon: Zap,
+    title: 'Marketing Automation',
+    description: 'Streamline your marketing processes and nurture leads with smart automation tools.',
+    features: ['Email Automation', 'Lead Scoring', 'CRM Integration', 'Analytics Dashboard'],
+    gradient: 'from-blue-600 to-violet-600',
+  },
+];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.12 } },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 28 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.55 } },
+};
+
 const Services = () => {
-  const services = [
-    {
-      icon: Search,
-      title: 'SEO Optimization',
-      description: 'Improve your search engine rankings and drive organic traffic to your website with our comprehensive SEO strategies.',
-      features: ['Keyword Research', 'On-Page SEO', 'Technical SEO', 'Link Building']
-    },
-    {
-      icon: BarChart3,
-      title: 'PPC Advertising',
-      description: 'Maximize your ROI with targeted pay-per-click campaigns across Google Ads, Facebook, and other platforms.',
-      features: ['Google Ads', 'Facebook Ads', 'Remarketing', 'Conversion Tracking']
-    },
-    {
-      icon: Share2,
-      title: 'Social Media Marketing',
-      description: 'Build meaningful connections with your audience and increase brand awareness through strategic social media campaigns.',
-      features: ['Content Strategy', 'Community Management', 'Paid Social', 'Analytics']
-    },
-    {
-      icon: PenTool,
-      title: 'Content Marketing',
-      description: 'Create compelling content that resonates with your audience and drives engagement and conversions.',
-      features: ['Blog Writing', 'Video Content', 'Infographics', 'Email Marketing']
-    },
-    {
-      icon: Smartphone,
-      title: 'Web Design & Development',
-      description: 'Build stunning, high-converting websites that provide exceptional user experiences and drive results.',
-      features: ['Responsive Design', 'UX/UI Design', 'E-commerce', 'Performance Optimization']
-    },
-    {
-      icon: Zap,
-      title: 'Marketing Automation',
-      description: 'Streamline your marketing processes and nurture leads automatically with smart automation tools.',
-      features: ['Email Automation', 'Lead Scoring', 'CRM Integration', 'Analytics Dashboard']
-    }
-  ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6
-      }
-    }
-  };
-
   return (
-    <section id="services" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+    <section id="services" className="relative py-24 bg-white overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-16 right-16 w-80 h-80 bg-violet-200 rounded-full blur-[110px] opacity-50" />
+        <div className="absolute bottom-16 left-16 w-80 h-80 bg-blue-200 rounded-full blur-[110px] opacity-50" />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.7 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <span className="inline-block text-violet-600 font-semibold text-xs uppercase tracking-[0.18em] mb-4">
+            What We Do
+          </span>
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-5">
             Our Digital Marketing
-            <span className="block text-black">
-              Services
-            </span>
+            <span className="block gradient-text">Services</span>
           </h2>
-                      <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We offer comprehensive digital marketing solutions designed to grow your business 
-              and achieve measurable results in today&rsquo;s competitive landscape.
-            </p>
+          <p className="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
+            Comprehensive digital marketing solutions designed to grow your business and achieve
+            measurable results in today&rsquo;s competitive landscape.
+          </p>
         </motion.div>
 
-        {/* Services Grid */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
         >
           {services.map((service) => (
             <motion.div
               key={service.title}
               variants={itemVariants}
-              whileHover={{ y: -10, scale: 1.02 }}
-              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100"
+              whileHover={{ y: -7, scale: 1.01 }}
+              className="glass-card rounded-2xl p-7 transition-all duration-300"
             >
-              <div className="flex items-center justify-center w-16 h-16 bg-black rounded-2xl mb-6">
-                <service.icon className="w-8 h-8 text-white" />
+              <div
+                className={`inline-flex items-center justify-center bg-gradient-to-br ${service.gradient} rounded-xl mb-5 shadow-lg`}
+                style={{ width: 52, height: 52 }}
+              >
+                <service.icon className="w-6 h-6 text-white" />
               </div>
-              
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                {service.title}
-              </h3>
-              
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                {service.description}
-              </p>
-              
-              <ul className="space-y-2">
+
+              <h3 className="text-lg font-bold text-gray-900 mb-2.5">{service.title}</h3>
+              <p className="text-gray-500 text-sm mb-5 leading-relaxed">{service.description}</p>
+
+              <ul className="space-y-1.5">
                 {service.features.map((feature) => (
-                                     <li key={feature} className="flex items-center text-gray-700">
-                     <div className="w-2 h-2 bg-black rounded-full mr-3"></div>
-                     {feature}
-                   </li>
+                  <li key={feature} className="flex items-center text-gray-600 text-sm">
+                    <span className="w-1.5 h-1.5 bg-gradient-to-r from-violet-500 to-blue-500 rounded-full mr-2.5 flex-shrink-0" />
+                    {feature}
+                  </li>
                 ))}
               </ul>
             </motion.div>
           ))}
         </motion.div>
 
-        {/* CTA Section */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
           viewport={{ once: true }}
-          className="text-center mt-16"
+          className="mt-16"
         >
-          <div className="bg-black rounded-2xl p-12 text-white">
-            <h3 className="text-3xl font-bold mb-4">
-              Ready to Transform Your Business?
-            </h3>
-            <p className="text-xl mb-8 text-gray-200">
-              Let&rsquo;s discuss how our digital marketing services can help you achieve your goals.
-            </p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-white text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-all duration-200"
-            >
-              Get Free Consultation
-            </motion.button>
+          <div className="glass-strong rounded-2xl p-12 text-center relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-violet-100/60 to-blue-100/60 pointer-events-none" />
+            <div className="relative z-10">
+              <h3 className="text-3xl font-bold text-gray-900 mb-4">Ready to Transform Your Business?</h3>
+              <p className="text-lg mb-8 text-gray-500">
+                Let&rsquo;s discuss how our services can help you achieve your goals.
+              </p>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-gradient-to-r from-violet-600 to-blue-600 text-white px-8 py-4 rounded-full font-semibold text-base glow-btn transition-all duration-300"
+              >
+                Get Free Consultation
+              </motion.button>
+            </div>
           </div>
         </motion.div>
       </div>
@@ -155,4 +152,4 @@ const Services = () => {
   );
 };
 
-export default Services; 
+export default Services;
